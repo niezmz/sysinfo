@@ -157,7 +157,7 @@ sysinfo/
 
 ## 📄 许可证
 
-Apache-2.0 license
+MIT license
 
 ---
 
