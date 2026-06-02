@@ -1,0 +1,29 @@
+[project]
+name = "sysinfo"
+version = "0.1.0"
+description = "系统信息查看器 - 跨平台桌面应用"
+requires-python = ">=3.9"
+dependencies = [
+    "PySide6>=6.5",
+]
+
+[project.scripts]
+sysinfo = "src.main:main"
+
+[project.gui-scripts]
+sysinfo-gui = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = ["src"]
+
+[tool.pyinstaller]
+# Windows 打包配置
+name = "SysInfo"
+icon = "src/resources/icon.ico"
+windowed = true
+onefile = true
