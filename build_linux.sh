@@ -28,10 +28,16 @@ echo "[3/4] PyInstaller 打包..."
 
 if [ "$MODE" = "appimage" ]; then
     # AppImage 模式：onedir + 手动打包
+    ICON_FLAG=""
+    if [ -f "src/resources/icon.png" ]; then
+        ICON_FLAG="--icon=src/resources/icon.png"
+    fi
     python -m PyInstaller \
         --name="$APPNAME" \
         --onedir \
         --windowed \
+        --clean \
+        $ICON_FLAG \
         --add-data="src:src" \
         main.py
 
@@ -80,10 +86,16 @@ APPRUN
 
 else
     # 单文件二进制模式（简单）
+    ICON_FLAG=""
+    if [ -f "src/resources/icon.png" ]; then
+        ICON_FLAG="--icon=src/resources/icon.png"
+    fi
     python -m PyInstaller \
         --name="$APPNAME" \
         --onefile \
         --windowed \
+        --clean \
+        $ICON_FLAG \
         --add-data="src:src" \
         main.py
 
